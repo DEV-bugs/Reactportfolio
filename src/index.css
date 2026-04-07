@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Manrope", "IBM Plex Sans Arabic", sans-serif;
+  --font-body: "Inter", "IBM Plex Sans Arabic", sans-serif;
+  --font-mono: "Space Grotesk", monospace;
+
+  --color-surface: #f7f9fb;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-variant: #e0e3e5;
+  --color-surface-bright: #f7f9fb;
+  
+  --color-primary: #006591;
+  --color-primary-container: #0ea5e9;
+  --color-on-primary: #ffffff;
+  
+  --color-tertiary: #795900;
+  --color-tertiary-fixed: #ffdf9f;
+  
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #3e4850;
+  --color-outline-variant: #bec8d2;
+
+  --radius-xl: 1.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-surface text-on-surface font-body;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-nav {
+    @apply sticky top-0 z-50 bg-surface-container-lowest/70 backdrop-blur-xl;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-headline font-bold text-sm transition-all hover:shadow-lg hover:shadow-primary/20 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-outline-variant/20 px-8 py-4 rounded-full font-headline font-bold text-sm transition-all hover:bg-surface-bright active:scale-95;
+  }
+  
+  .mono-label {
+    @apply font-mono text-xs uppercase tracking-widest;
+  }
+}
